@@ -3,11 +3,18 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import { useCart } from "@/app/cartcontext";
 
 export function LandingPage() {
+  const { addToCart } = useCart(); // Destructure addToCart from useCart
+
+  const handleAddToCart = () => {
+    addToCart(); // Call addToCart when the button is clicked
+  };
+
   return (
     <main className="flex-1">
-      <section className="bg-gradient-to-r from-green-300 to-secondary py-12 md:py-24 lg:py-32">
+      <section className="bg-gradient-to-r from-green-300 to-primary   py-12 md:py-24 lg:py-32">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -139,7 +146,7 @@ export function LandingPage() {
               <p className="text-muted-foreground mb-4">Lightweight and Stylish</p>
               <div className="flex items-center justify-between w-full">
                 <span className="text-lg font-semibold">$49.99</span>
-                <Button size="sm">Add to Cart</Button>
+                <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
               </div>
             </div>
             <div className="bg-background rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
@@ -155,7 +162,7 @@ export function LandingPage() {
               <p className="text-muted-foreground mb-4">Comfortable and Versatile</p>
               <div className="flex items-center justify-between w-full">
                 <span className="text-lg font-semibold">$29.99</span>
-                <Button size="sm">Add to Cart</Button>
+                <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
               </div>
             </div>
             <div className="bg-background rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
@@ -171,7 +178,7 @@ export function LandingPage() {
               <p className="text-muted-foreground mb-4">Flattering and Trendy</p>
               <div className="flex items-center justify-between w-full">
                 <span className="text-lg font-semibold">$59.99</span>
-                <Button size="sm">Add to Cart</Button>
+                <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
               </div>
             </div>
           </div>
@@ -182,7 +189,7 @@ export function LandingPage() {
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold tracking-tighter">Top Selling Products</h2>
             <Link
-              href="#"
+              href="/product"
               className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               prefetch={false}
             >
@@ -194,20 +201,24 @@ export function LandingPage() {
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
-                    <img
-                      src="/placeholder.svg"
-                      alt="Product Image"
-                      width={400}
-                      height={400}
-                      className="w-full h-[300px] object-cover rounded-t-lg"
-                      style={{ aspectRatio: "400/400", objectFit: "cover" }}
-                    />
+                    <Link href="/product/1" prefetch={false}>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Product Image"
+                        width={400}
+                        height={400}
+                        className="w-full h-[300px] object-cover rounded-t-lg"
+                        style={{ aspectRatio: "400/400", objectFit: "cover" }}
+                      />
+                    </Link>
                     <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold">Summer Dress</h3>
-                      <p className="text-muted-foreground mb-4">Lightweight and Stylish</p>
+                      <Link href="/product/1" prefetch={false}>
+                        <h3 className="text-lg font-semibold">Summer Dress</h3>
+                        <p className="text-muted-foreground mb-4">Lightweight and Stylish</p>
+                      </Link>
                       <div className="flex items-center justify-between">
                         <span className="text-lg font-semibold">$49.99</span>
-                        <Button size="sm">Add to Cart</Button>
+                        <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -216,20 +227,24 @@ export function LandingPage() {
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
-                    <img
-                      src="/placeholder.svg"
-                      alt="Product Image"
-                      width={400}
-                      height={400}
-                      className="w-full h-[300px] object-cover rounded-t-lg"
-                      style={{ aspectRatio: "400/400", objectFit: "cover" }}
-                    />
+                    <Link href="/product/1" prefetch={false}>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Product Image"
+                        width={400}
+                        height={400}
+                        className="w-full h-[300px] object-cover rounded-t-lg"
+                        style={{ aspectRatio: "400/400", objectFit: "cover" }}
+                      />
+                    </Link>
                     <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold">Casual Shirt</h3>
-                      <p className="text-muted-foreground mb-4">Comfortable and Versatile</p>
+                      <Link href="/product/1" prefetch={false}>
+                        <h3 className="text-lg font-semibold">Casual Shirt</h3>
+                        <p className="text-muted-foreground mb-4">Comfortable and Versatile</p>
+                      </Link>
                       <div className="flex items-center justify-between">
                         <span className="text-lg font-semibold">$29.99</span>
-                        <Button size="sm">Add to Cart</Button>
+                        <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -238,20 +253,24 @@ export function LandingPage() {
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
-                    <img
-                      src="/placeholder.svg"
-                      alt="Product Image"
-                      width={400}
-                      height={400}
-                      className="w-full h-[300px] object-cover rounded-t-lg"
-                      style={{ aspectRatio: "400/400", objectFit: "cover" }}
-                    />
+                    <Link href="/product/1" prefetch={false}>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Product Image"
+                        width={400}
+                        height={400}
+                        className="w-full h-[300px] object-cover rounded-t-lg"
+                        style={{ aspectRatio: "400/400", objectFit: "cover" }}
+                      />
+                    </Link>
                     <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold">Skinny Jeans</h3>
-                      <p className="text-muted-foreground mb-4">Flattering and Trendy</p>
+                      <Link href="/product/1" prefetch={false}>
+                        <h3 className="text-lg font-semibold">Skinny Jeans</h3>
+                        <p className="text-muted-foreground mb-4">Flattering and Trendy</p>
+                      </Link>
                       <div className="flex items-center justify-between">
                         <span className="text-lg font-semibold">$59.99</span>
-                        <Button size="sm">Add to Cart</Button>
+                        <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -263,7 +282,7 @@ export function LandingPage() {
           </Carousel>
         </div>
       </section>
-    </main>
+    </main >
   )
 }
 

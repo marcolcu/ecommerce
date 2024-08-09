@@ -4,12 +4,15 @@ import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
+import { useCart } from "@/app/cartcontext";
 
 export function Navbar() {
+  const { cartItems } = useCart();
+
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 shadow-sm">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
+        <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-6 w-6" />
           <span className="font-bold">Acme Store</span>
         </Link>
@@ -40,11 +43,13 @@ export function Navbar() {
             />
           </div>
           <div className="flex items-center gap-4">
-            <Link href="#" className="relative" prefetch={false}>
+            <Link href="/cart" className="relative" prefetch={false}>
               <ShoppingCartIcon className="h-6 w-6" />
-              <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
-                3
-              </span>
+              {cartItems > 0 && (
+                <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                  {cartItems}
+                </span>
+              )}
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -54,7 +59,7 @@ export function Navbar() {
                   className="rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800"
                 >
                   <img
-                    src="placeholder-user.jpg"
+                    src="/placeholder-user.jpg"
                     width="32"
                     height="32"
                     className="rounded-full"
@@ -118,7 +123,7 @@ export function Navbar() {
             </div>
             <div className="border-t px-4 py-6 dark:border-gray-800">
               <div className="flex items-center gap-4">
-                <Link href="#" className="relative" prefetch={false}>
+                <Link href="/cart" className="relative" prefetch={false}>
                   <ShoppingCartIcon className="h-6 w-6" />
                   <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
                     3
@@ -132,7 +137,7 @@ export function Navbar() {
                       className="rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800"
                     >
                       <img
-                        src="placeholder-user.jpg"
+                        src="/placeholder-user.jpg"
                         width="32"
                         height="32"
                         className="rounded-full"
