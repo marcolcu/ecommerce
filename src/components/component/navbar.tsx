@@ -18,6 +18,9 @@ export function Navbar() {
         </Link>
         <div className="hidden items-center gap-4 md:flex">
           <nav className="flex items-center gap-4">
+            <Link href="/" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
+              Home
+            </Link>
             <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
               Men
             </Link>
@@ -26,9 +29,6 @@ export function Navbar() {
             </Link>
             <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
               Kids
-            </Link>
-            <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
-              Home
             </Link>
             <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
               Sale
@@ -95,6 +95,9 @@ export function Navbar() {
               </Link>
             </div>
             <nav className="grid gap-4 px-4 py-6">
+              <Link href="/" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
+                Home
+              </Link>
               <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
                 Men
               </Link>
@@ -103,9 +106,6 @@ export function Navbar() {
               </Link>
               <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
                 Kids
-              </Link>
-              <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
-                Home
               </Link>
               <Link href="#" className="font-medium hover:text-gray-900 dark:hover:text-gray-50" prefetch={false}>
                 Sale

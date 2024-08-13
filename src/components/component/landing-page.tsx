@@ -14,7 +14,7 @@ export function LandingPage() {
 
   return (
     <main className="flex-1">
-      <section className="bg-gradient-to-r from-green-300 to-primary   py-12 md:py-24 lg:py-32">
+      <section className="bg-gradient-to-r from-green-300 to-secondary   py-12 md:py-24 lg:py-32">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -130,7 +130,7 @@ export function LandingPage() {
           </Link>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-primary to-secondary py-12 md:py-24 lg:py-32">
+      <section className="bg-gradient-to-r from-secondary to-green-300 py-12 md:py-24 lg:py-32">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-background rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
